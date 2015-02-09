@@ -10,8 +10,8 @@ $(function(){
   var targetMins = $('#countdownMins')
   var targetSecs = $('#countdownSecs')
   var targetContainer = $('#coundownContainer')
-  var targetDate = new Date(targetContainer.data('target'))
-  console.log(targetDate);
+  var targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 47);
   var spanDays = $('<span>', {id: 'spanDays'});
   var spanHours = $('<span>', {id: 'spanHours'});
   var spanMinutes = $('<span>', {id: 'spanMinutes'});
@@ -22,6 +22,7 @@ $(function(){
   targetSecs.append(spanSeconds)
   window.setInterval(clock, 1000)
   function  clock(){
+    console.log(targetDate - new Date());
   var delta = Math.abs(targetDate - new Date()) / 1000;
   var days = Math.floor(delta / 86400);
   delta -= days * 86400;
